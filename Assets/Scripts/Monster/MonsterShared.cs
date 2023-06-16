@@ -51,4 +51,18 @@ public class MonsterShared : MonoBehaviour
         speed = spd;
         this.amounttomovex = amounttomovex;
     }
+
+    public GameObject detectEnemy()
+    {
+        GameObject enemy = GameObject.FindObjectOfType<Control>().gameObject;
+        float space = (enemy.transform.position.x - transform.position.x) * (enemy.transform.position.x - transform.position.x)
+            + (enemy.transform.position.y - transform.position.y) * (enemy.transform.position.y - transform.position.y);
+        if (space<500f && !enemy.GetComponent<Control>().immune)
+        {
+            return enemy;
+        } else
+        {
+            return null;
+        }
+    }
 }

@@ -23,6 +23,14 @@ public class Crystals : MonoBehaviour
         {
             bling.Play();
             player.diamonds++;
+            if (player.curhealth<=98)
+            {
+                player.curhealth += 2;
+            }
+            else
+            {
+                player.curhealth = 100;
+            }
             Destroy(gameObject);
         }
     }
