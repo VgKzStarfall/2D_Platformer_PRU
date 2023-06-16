@@ -19,7 +19,7 @@ public class Stat_Diamond : MonoBehaviour
 
     void Update()
     {
-        diamond.text = "Diamond: " + player.diamonds + "/75";
+        diamond.text = "Diamond: " + player.diamonds;
         valueR = player.diamonds;
         aMain.Instance.value_diamond = valueR;
     }
