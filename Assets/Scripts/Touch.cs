@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class Touch : MonoBehaviour
 {
     private Control player;
-
+    private IOFIle file = new IOFIle();
 
     void Start()
     {
@@ -30,6 +30,7 @@ public class Touch : MonoBehaviour
     }
     public void BackG()
     {
+        file.dataFileWriter(210, 10);
         SceneManager.LoadScene("0Menu");
     }
 

@@ -11,12 +11,14 @@ public class Stat_Death : MonoBehaviour
     public TMP_Text death;
     private Control player;
     public int valueR;
+    public aMain score;
 
     // Start is called before the first frame update
     void Start()
     {
         death = GetComponent<TextMeshProUGUI>();
         player = FindObjectOfType<Control>();
+        score = FindObjectOfType<aMain>();
     }
 
     // Update is called once per frame
@@ -26,6 +28,7 @@ public class Stat_Death : MonoBehaviour
         valueR = player.deathc;
         if (valueR == 3)
         {
+            score.value_score = 0;
             SceneManager.LoadScene("1End");
         }
         aMain.Instance.value_death = valueR;
