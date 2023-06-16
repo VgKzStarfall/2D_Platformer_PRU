@@ -1,18 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class RedMonster : MonsterShared
+public class Healthbar : MonoBehaviour
 {
+    public Slider slider;
     // Start is called before the first frame update
     void Start()
     {
-        MonsterInitial(10,10, 5);
     }
 
     // Update is called once per frame
     void Update()
     {
-        Move();
+
+    }
+
+    public void setHealth(float health, float maxHealth)
+    {
+        slider.value = health;
+        slider.maxValue = maxHealth;
     }
 }

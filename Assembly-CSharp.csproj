@@ -80,6 +80,7 @@
     <Compile Include="Assets\Scripts\Monster\BlueMonster.cs" />
     <Compile Include="Assets\Scripts\Monster\GreenMonster.cs" />
     <Compile Include="Assets\Scripts\Monster\BlackMonster.cs" />
+    <Compile Include="Assets\Scripts\Healthbar.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

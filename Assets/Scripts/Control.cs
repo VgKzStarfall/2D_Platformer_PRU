@@ -10,6 +10,8 @@ public class Control : MonoBehaviour
     public int diamonds = 0;
     public int rubies = 0;
     public int deathc = 0;
+    public int maxhealth = 100;
+    public int curhealth = 100;
 
     public float moveS, jumpH;
     public bool moveL, moveR, jump;
@@ -19,6 +21,9 @@ public class Control : MonoBehaviour
 
     private Animator anim;
     public Vector3 respawnPoint;
+    public GameObject Explode;
+    public bool immune;
+    public GameObject healthbar;
 
     //
     void Start()
@@ -26,6 +31,9 @@ public class Control : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         respawnPoint= transform.position;
+        curhealth = 100;
+        maxhealth = 100;
+        immune = false;
     }
 
     //
@@ -35,10 +43,14 @@ public class Control : MonoBehaviour
         {
             SceneManager.LoadScene("Level1");
         }
-
+        healthbar.GetComponent<Healthbar>().setHealth(curhealth, maxhealth);
         InputMovement();
         AnimAvatar();
         StartCoroutine(StorePosition());
+        if (curhealth == 0)
+        {
+            StartCoroutine(respawndelay());
+        }
     }
 
     //
@@ -134,12 +146,36 @@ public class Control : MonoBehaviour
     // checkPoint
     private void OnTriggerEnter2D(Collider2D collision)
     {
-      if (collision.tag==("Checkpoint"))
+        if (collision.tag==("Checkpoint"))
         {
             respawnPoint = transform.position;
-
         }
+        if (collision.tag == "slave" && !immune)
+        {
+            collision.GetComponent<MonsterShared>().dealDamage(gameObject);
+            StartCoroutine(immunity());
+        }
+    }
 
+    public IEnumerator immunity()
+    {
+        immune = true;
+        yield return new WaitForSeconds(1f);
+        immune = false;
+    }
+
+    public IEnumerator respawndelay()
+    {
+        enabled = false;
+        Instantiate(Explode, respawnPoint, transform.rotation); //edit this line for checkpoint
+        //player.enabled = false;
+        GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+        GetComponent<Renderer>().enabled = false;
+        yield return new WaitForSeconds(1);
+        transform.position = respawnPoint; // eidt this line for checkpoint
+        curhealth = maxhealth;
+        GetComponent<Renderer>().enabled = true;
+        enabled = true;
     }
 
 }
