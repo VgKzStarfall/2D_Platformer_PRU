@@ -496,7 +496,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Can be touched and stood on
+  m_text: Deal no damage (Trust us)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 05998fe02d52d5943b86e713f2fbb2c4, type: 2}
   m_sharedMaterial: {fileID: -29591890000298494, guid: 05998fe02d52d5943b86e713f2fbb2c4, type: 2}
