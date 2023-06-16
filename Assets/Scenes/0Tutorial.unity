@@ -196,7 +196,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: DEATH on impact
+  m_text: SMALL damage on impact
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 05998fe02d52d5943b86e713f2fbb2c4, type: 2}
   m_sharedMaterial: {fileID: -29591890000298494, guid: 05998fe02d52d5943b86e713f2fbb2c4, type: 2}
@@ -259,7 +259,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -2.1551208, w: 9.306335}
+  m_margin: {x: 0, y: 0, z: -105.935776, w: 9.306335}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1963,7 +1963,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: DEATH on impact
+  m_text: BIG damage on impact
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 05998fe02d52d5943b86e713f2fbb2c4, type: 2}
   m_sharedMaterial: {fileID: -29591890000298494, guid: 05998fe02d52d5943b86e713f2fbb2c4, type: 2}
@@ -2026,7 +2026,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -2.1551208, w: 9.306335}
+  m_margin: {x: 0, y: 0, z: -64.728775, w: 9.306335}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
