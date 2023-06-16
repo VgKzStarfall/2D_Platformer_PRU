@@ -30,7 +30,6 @@ public class Touch : MonoBehaviour
     }
     public void BackG()
     {
-        file.dataFileWriter(210, 10);
         SceneManager.LoadScene("0Menu");
     }
 

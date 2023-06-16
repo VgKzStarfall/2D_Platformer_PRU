@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,7 @@ public class Control : MonoBehaviour
     public int deathc = 0;
     public int maxhealth = 100;
     public int curhealth = 100;
+    public DateTime curTime;
 
     public float moveS, jumpH;
     public bool moveL, moveR, jump;
@@ -39,6 +41,7 @@ public class Control : MonoBehaviour
         curhealth = 100;
         maxhealth = 100;
         immune = false;
+        curTime = DateTime.Now;
     }
 
     //

@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 public class Switch : MonoBehaviour
 {
     private Control player;
-
+    private int finalscore;
+    private IOFIle file = new IOFIle();
 
     void Start()
     {
@@ -19,6 +20,8 @@ public class Switch : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            finalscore = (50 * player.diamonds) + (1000 * player.rubies) + (-100 * player.deathc);
+            file.dataFileWriter(finalscore, player.diamonds, player.rubies, player.curTime);
             SceneManager.LoadScene("1End");
         }
     }
