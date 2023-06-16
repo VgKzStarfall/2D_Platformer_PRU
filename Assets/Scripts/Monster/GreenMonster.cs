@@ -100,6 +100,13 @@ public class GreenMonster : MonsterShared
             {
                 dir.x = 10 * dir.x / Mathf.Sqrt(dir.x * dir.x + dir.y * dir.y);
                 dir.y = 10 * dir.y / Mathf.Sqrt(dir.x * dir.x + dir.y * dir.y);
+                if ((dir.x * dir.x + dir.y * dir.y) < 5f)
+                {
+                    dir.x = 0;
+                    dir.y = 0;
+                    moveTime = 0;
+                    exhausted = true;
+                }
             } else
             {
                 if (exhausted)
@@ -108,19 +115,12 @@ public class GreenMonster : MonsterShared
                     dir.x = 20 * dir.x / Mathf.Sqrt(dir.x * dir.x + dir.y * dir.y);
                     dir.y = 20 * dir.y / Mathf.Sqrt(dir.x * dir.x + dir.y * dir.y);
                 }
-                if ((dir.x * dir.x + dir.y * dir.y) < 5f && back)
-                {
-                    dir.x = 0;
-                    dir.y = 0;
-                    moveTime = 0;
-                    exhausted = true;
-                }
                 if ((dir.x * dir.x + dir.y * dir.y) < 50f && !back)
                 {
                     dir.x = Random.Range(50f, 100f) * dir.x / Mathf.Sqrt(dir.x * dir.x + dir.y * dir.y);
                     dir.y = Random.Range(50f, 100f) * dir.y / Mathf.Sqrt(dir.x * dir.x + dir.y * dir.y);
                 }
-                else if ((dir.x * dir.x + dir.y * dir.y) > 100f)
+                else if ((dir.x * dir.x + dir.y * dir.y) > 75f)
                 {
                     exhausted = true;
                 }
