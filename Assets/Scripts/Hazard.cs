@@ -28,7 +28,6 @@ public class Hazard : MonoBehaviour
     public IEnumerator respawndelay()
     {
         player.deathc++;
-        player.curhealth = 0;
         player.enabled = false;
         Instantiate(Explode, player.transform.position, transform.rotation); //edit this line for checkpoint
         //player.enabled = false;

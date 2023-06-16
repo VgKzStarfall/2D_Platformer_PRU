@@ -192,9 +192,25 @@ public class Control : MonoBehaviour
     public IEnumerator immunity()
     {
         immune = true;
-        yield return new WaitForSeconds(1f);
+        for (int i=0;i<20;i++)
+        {
+            Color c = GetComponent<SpriteRenderer>().color;
+            if (c.a > 0)
+            {
+                c.a -= 0.5f;
+            } else if (c.a < 1)
+            {
+                c.a += 0.5f;
+            }
+            GetComponent<SpriteRenderer>().color = c;
+            yield return new WaitForSeconds(0.1f);
+        }
+        Color c1 = GetComponent<SpriteRenderer>().color;
+        c1.a = 1;
+        GetComponent<SpriteRenderer>().color = c1;
         immune = false;
     }
+
 
     public IEnumerator respawndelay()
     {
