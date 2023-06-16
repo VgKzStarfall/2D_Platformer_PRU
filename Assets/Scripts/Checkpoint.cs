@@ -13,7 +13,7 @@ public class Checkpoint : MonoBehaviour
     {
         isReached = true;
         sound.Play();
-        GetComponent<Animator>().SetTrigger("Activate"); // Optional: play an animation when checkpoint is reached
+//        GetComponent<Animator>().SetTrigger("Activate"); // Optional: play an animation when checkpoint is reached
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

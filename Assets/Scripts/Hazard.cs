@@ -27,9 +27,9 @@ public class Hazard : MonoBehaviour
 
     public IEnumerator respawndelay()
     {
-        
-        Instantiate(Explode, player.respawnPoint, player.transform.rotation); //edit this line for checkpoint
         player.enabled = false;
+        Instantiate(Explode, player.respawnPoint, player.transform.rotation); //edit this line for checkpoint
+//        player.enabled = false;
         player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         player.GetComponent<Renderer>().enabled = false;
         yield return new WaitForSeconds(1);
