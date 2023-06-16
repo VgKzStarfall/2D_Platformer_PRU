@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class Touch : MonoBehaviour
 {
     private Control player;
-
+    private IOFIle file = new IOFIle();
 
     void Start()
     {

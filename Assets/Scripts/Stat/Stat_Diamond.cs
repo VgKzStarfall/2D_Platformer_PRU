@@ -15,6 +15,7 @@ public class Stat_Diamond : MonoBehaviour
     {
         diamond = GetComponent<TextMeshProUGUI>();
         player = FindObjectOfType<Control>();
+
     }
 
     void Update()
