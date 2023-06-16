@@ -47,7 +47,7 @@ public class Control : MonoBehaviour
         InputMovement();
         AnimAvatar();
         StartCoroutine(StorePosition());
-        if (curhealth == 0)
+        if (curhealth <= 0)
         {
             StartCoroutine(respawndelay());
         }
@@ -166,8 +166,9 @@ public class Control : MonoBehaviour
 
     public IEnumerator respawndelay()
     {
+        deathc++;
         enabled = false;
-        Instantiate(Explode, respawnPoint, transform.rotation); //edit this line for checkpoint
+        Instantiate(Explode, transform.position, transform.rotation); //edit this line for checkpoint
         //player.enabled = false;
         GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         GetComponent<Renderer>().enabled = false;
