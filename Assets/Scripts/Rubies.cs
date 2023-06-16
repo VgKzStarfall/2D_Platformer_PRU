@@ -23,6 +23,13 @@ public class Rubies : MonoBehaviour
         {
             bling.Play();
             player.rubies++;
+            if (player.curhealth<=50)
+            {
+                player.curhealth += 50;
+            } else
+            {
+                player.curhealth = 100;
+            }
             Destroy(gameObject);
         }
     }

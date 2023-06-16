@@ -25,6 +25,11 @@ public class Control : MonoBehaviour
     public bool immune;
     public GameObject healthbar;
 
+    public GameObject leftLimit;
+    public GameObject rightLimit;
+    public GameObject topLimit;
+    public GameObject bottomLimit;
+
     //
     void Start()
     {
@@ -47,12 +52,36 @@ public class Control : MonoBehaviour
         InputMovement();
         AnimAvatar();
         StartCoroutine(StorePosition());
-        if (curhealth == 0)
+        if (checkLimit())
+        {
+            curhealth = 0;
+        }
+        if (curhealth <= 0)
         {
             StartCoroutine(respawndelay());
         }
     }
 
+    bool checkLimit()
+    {
+        if (transform.position.x<leftLimit.transform.position.x)
+        {
+            return true;
+        }
+        if (transform.position.x > rightLimit.transform.position.x)
+        {
+            return true;
+        }
+        if (transform.position.y > topLimit.transform.position.y)
+        {
+            return true;
+        }
+        if (transform.position.y < bottomLimit.transform.position.y)
+        {
+            return true;
+        }
+        return false;
+    }
     //
     private void Startstar()
     {
@@ -166,14 +195,16 @@ public class Control : MonoBehaviour
 
     public IEnumerator respawndelay()
     {
+        deathc++;
         enabled = false;
-        Instantiate(Explode, respawnPoint, transform.rotation); //edit this line for checkpoint
+        Instantiate(Explode, transform.position, transform.rotation); //edit this line for checkpoint
         //player.enabled = false;
-        GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         GetComponent<Renderer>().enabled = false;
         yield return new WaitForSeconds(1);
         transform.position = respawnPoint; // eidt this line for checkpoint
         curhealth = maxhealth;
+        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
         GetComponent<Renderer>().enabled = true;
         enabled = true;
     }
